@@ -1,0 +1,232 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #121212;
+    color: #fafafa;
+    line-height: 1.6;
+    text-align: center;
+}
+
+h1, h2, h3 {
+    color: #ec4d58;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Estilo del encabezado */
+header {
+    background-color: #121212;
+    padding: 10px 20px;
+    border-bottom: 2px solid #ec4d58;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+}
+
+nav ul.nav-left {
+    justify-content: flex-start;
+}
+
+nav ul.nav-right {
+    margin-left: auto;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fafafa;
+    font-weight: bold;
+    padding: 10px 15px;
+    display: inline-block;
+}
+
+nav ul li a:hover {
+    color: #ec4d58;
+}
+
+.bot-button {
+    background-color: #ec4d58;
+    color: #fafafa;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    display: inline-block;
+    white-space: nowrap;
+    margin-left: 15px;
+}
+
+.bot-button:hover {
+    background-color: #fafafa;
+    color: #121212;
+}
+
+.cta-button {
+    background-color: #ec4d58;
+    color: #fafafa;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.cta-button:hover {
+    background-color: #fafafa;
+    color: #121212;
+}
+
+.cta-button.minimal {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+    margin: 0 5px;
+}
+
+.cta-button.whatsapp.middle {
+    background-color: #25D366;
+    color: #fafafa;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 1rem;
+}
+
+.cta-button.whatsapp.middle:hover {
+    background-color: #fafafa;
+    color: #25D366;
+}
+
+/* Sección Hero */
+.hero-video {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 500px;
+}
+
+.hero-text {
+    text-align: center;
+    padding: 20px;
+}
+
+/* Secciones generales */
+section {
+    padding: 40px 20px;
+    margin-bottom: 20px;
+    background-color: #1e1e1e;
+    border: 1px solid #ec4d58;
+    border-radius: 8px;
+}
+
+.card {
+    background-color: #1e1e1e;
+    border: 1px solid #ec4d58;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.service-grid, .educators-grid, .community-grid, .philosophy-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.service-card, .educator-card, .community-card, .philosophy-card {
+    background-color: #1e1e1e;
+    border: 1px solid #ec4d58;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    flex: 1 1 calc(33% - 40px);
+    max-width: calc(33% - 40px);
+}
+
+.service-card img, .educator-card img, .community-card img, .philosophy-card img {
+    max-width: 100%;
+    border-radius: 15px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.section-image {
+    display: block;
+    margin: 0 auto 20px;
+    max-width: 30%; /* Reducido para un tamaño más consistente */
+    height: auto;
+    border-radius: 15px;
+}
+
+/* Footer */
+footer {
+    background-color: #121212;
+    color: #fafafa;
+    text-align: center;
+    padding: 20px;
+    border-top: 2px solid #ec4d58;
+}
+
+.contact-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.contact-buttons a {
+    text-decoration: none;
+    color: #fafafa;
+    font-size: 1.5rem;
+}
+
+.contact-buttons a:hover {
+    color: #ec4d58;
+}
+
+.footer-logo {
+    display: block;
+    margin: 10px auto 0;
+    max-width: 120px;
+}
+
+/* Responsivo */
+@media screen and (max-width: 768px) {
+    .service-card, .educator-card, .community-card, .philosophy-card {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .contact-buttons {
+        flex-direction: column;
+    }
+}
