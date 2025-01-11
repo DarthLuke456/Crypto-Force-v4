@@ -162,21 +162,22 @@ section {
     border-radius: 8px;
     padding: 20px;
     text-align: center;
-    flex: 1 1 calc(33% - 40px);
-    max-width: calc(33% - 40px);
+    flex: 1 1 calc(33.333% - 40px);
+    max-width: calc(33.333% - 40px);
 }
 
 .service-card img, .educator-card img, .community-card img, .philosophy-card img {
     max-width: 100%;
-    border-radius: 15px;
     height: auto;
+    border-radius: 15px;
     margin-bottom: 15px;
 }
 
 .section-image {
     display: block;
     margin: 0 auto 20px;
-    max-width: 30%; /* Reducido para un tamaño más consistente */
+    width: 100%;
+    max-width: 300px;
     height: auto;
     border-radius: 15px;
 }
