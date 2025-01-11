@@ -199,15 +199,30 @@ footer {
     flex-wrap: wrap;
 }
 
+/* Estilo actualizado de los botones */
 .contact-buttons a {
-    text-decoration: none;
+    background-color: #ec4d58;
     color: #fafafa;
-    font-size: 1.5rem;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0; /* Sin padding */
+    height: 25px; /* Altura fija */
+    line-height: 25px; /* Alinea el texto verticalmente */
+    font-size: 0.9rem; /* Tamaño del texto más pequeño */
+    white-space: nowrap;
+    box-sizing: border-box; /* Incluye el padding en las dimensiones */
 }
 
 .contact-buttons a:hover {
-    color: #ec4d58;
+    background-color: #fafafa;
+    color: #121212;
 }
+
+
 
 .footer-logo {
     display: block;
@@ -229,5 +244,118 @@ footer {
 
     .contact-buttons {
         flex-direction: column;
+    }
+}
+
+/* Estilo de los botones dentro de un contenedor flex */
+.contact-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Estilo de los botones */
+.contact-buttons a {
+    background-color: #ec4d58;
+    color: #fafafa;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    white-space: nowrap;
+}
+
+.contact-buttons a:hover {
+    background-color: #fafafa;
+    color: #121212;
+}
+
+/* Educators */
+#educators {
+    padding: 20px;
+    background-color: #1e1e1e;
+    color: #fafafa;
+    border-radius: 10px;
+    text-align: center;
+    margin: 20px auto;
+}
+
+#educators h2 {
+    font-size: 1.8rem;
+    color: #ec4d58;
+    margin-bottom: 10px;
+}
+
+#educators p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+/* Grid de tarjetas */
+.educators-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Tarjeta individual */
+.educator-card {
+    background-color: #2a2a2a;
+    border: 1px solid #ec4d58;
+    border-radius: 8px;
+    text-align: center;
+    padding: 20px;
+    max-width: 300px;
+    flex: 1 1 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.educator-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.educator-card h3 {
+    color: #ec4d58;
+    margin-bottom: 10px;
+}
+
+.educator-card p {
+    font-size: 0.9rem;
+    color: #fafafa;
+    margin-bottom: 15px;
+}
+
+.cta-button {
+    background-color: #ec4d58;
+    color: #fafafa;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: auto;
+}
+
+.cta-button:hover {
+    background-color: #fafafa;
+    color: #121212;
+}
+
+@media screen and (max-width: 768px) {
+    .educators-grid {
+        flex-direction: column;
+        align-items: center;
     }
 }
