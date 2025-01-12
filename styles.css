@@ -66,7 +66,7 @@ nav ul li a:hover {
     color: #ec4d58;
 }
 
-.bot-button {
+.bot-button, .cta-button {
     background-color: #ec4d58;
     color: #fafafa;
     padding: 10px 20px;
@@ -74,29 +74,14 @@ nav ul li a:hover {
     font-weight: bold;
     border-radius: 5px;
     display: inline-block;
-    white-space: nowrap;
-    margin-left: 15px;
 }
 
-.bot-button:hover {
+.bot-button:hover, .cta-button:hover {
     background-color: #fafafa;
     color: #121212;
 }
 
-.cta-button {
-    background-color: #ec4d58;
-    color: #fafafa;
-    padding: 10px 20px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-}
-
-.cta-button:hover {
-    background-color: #fafafa;
-    color: #121212;
-}
-
+/* Botones adicionales */
 .cta-button.minimal {
     font-size: 0.9rem;
     padding: 6px 12px;
@@ -105,7 +90,6 @@ nav ul li a:hover {
 
 .cta-button.whatsapp.middle {
     background-color: #25D366;
-    color: #fafafa;
     padding: 8px 16px;
     border-radius: 50px;
     font-size: 1rem;
@@ -119,9 +103,8 @@ nav ul li a:hover {
 /* Sección Hero */
 .hero-video {
     width: 100%;
-    height: auto;
-    display: block;
     max-height: 500px;
+    display: block;
 }
 
 .hero-text {
@@ -143,12 +126,12 @@ section {
     border: 1px solid #ec4d58;
     border-radius: 8px;
     padding: 20px;
-    margin-bottom: 20px;
+    margin: 0 auto 20px;
+    max-width: 90%;
     text-align: center;
-    margin-left: 10%;
-    margin-right: 10%;
 }
 
+/* Grids */
 .service-grid, .educators-grid, .community-grid, .philosophy-grid {
     display: flex;
     flex-wrap: wrap;
@@ -157,28 +140,24 @@ section {
 }
 
 .service-card, .educator-card, .community-card, .philosophy-card {
-    background-color: #1e1e1e;
+    background-color: #2a2a2a;
     border: 1px solid #ec4d58;
     border-radius: 8px;
     padding: 20px;
-    text-align: center;
     flex: 1 1 calc(33.333% - 40px);
     max-width: calc(33.333% - 40px);
+    text-align: center;
 }
 
 .service-card img, .educator-card img, .community-card img, .philosophy-card img {
     max-width: 100%;
-    height: auto;
     border-radius: 15px;
     margin-bottom: 15px;
 }
 
 .section-image {
-    display: block;
     margin: 0 auto 20px;
-    width: 100%;
     max-width: 300px;
-    height: auto;
     border-radius: 15px;
 }
 
@@ -192,49 +171,120 @@ footer {
 }
 
 .contact-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 20px;
-    flex-wrap: wrap;
+    display: flex; /* Diseño flexible */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    gap: 20px; /* Espaciado uniforme entre botones */
+    flex-wrap: wrap; /* Permitir que los botones se ajusten en varias líneas en pantallas pequeñas */
+    margin-top: 20px; /* Separación del resto de la sección */
+    padding: 10px; /* Espaciado interno opcional */
+    box-sizing: border-box; /* Modelo de caja consistente */
 }
 
-/* Estilo actualizado de los botones */
 .contact-buttons a {
-    background-color: #ec4d58;
-    color: #fafafa;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 4px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0; /* Sin padding */
-    height: 25px; /* Altura fija */
-    line-height: 25px; /* Alinea el texto verticalmente */
-    font-size: 0.9rem; /* Tamaño del texto más pequeño */
-    white-space: nowrap;
-    box-sizing: border-box; /* Incluye el padding en las dimensiones */
+    background-color: #ec4d58; /* Fondo del botón */
+    color: #fafafa; /* Color del texto */
+    text-decoration: none; /* Sin subrayado */
+    font-weight: bold; /* Texto en negrita */
+    border-radius: 8px; /* Bordes redondeados */
+    display: inline-flex; /* Flex para alinear íconos y texto */
+    align-items: center; /* Centrar ícono y texto verticalmente */
+    justify-content: center; /* Centrar contenido horizontalmente */
+    width: 180px; /* Ancho fijo */
+    height: 50px; /* Alto fijo */
+    font-size: 0.9rem; /* Tamaño del texto */
+    white-space: nowrap; /* Evitar que el texto se divida en varias líneas */
+    padding: 0 15px; /* Espaciado interno */
+    gap: 10px; /* Espaciado entre ícono y texto */
+    box-sizing: border-box; /* Modelo de caja consistente */
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+.contact-buttons a i {
+    font-size: 1.4rem; /* Tamaño del ícono */
+    margin-right: 0; /* Eliminar cualquier margen lateral adicional */
+    display: inline-flex; /* Asegura alineación */
+    align-items: center; /* Centrar verticalmente */
+    justify-content: center;
+}
+
+/* Efecto hover */
 .contact-buttons a:hover {
     background-color: #fafafa;
     color: #121212;
 }
 
+.contact-buttons a:hover i {
+    color: #121212; /* Cambio de color del ícono en hover */
+}
+
+/* Responsivo */
+@media screen and (max-width: 768px) {
+    .contact-buttons {
+        flex-direction: column; /* Apilar botones en pantallas pequeñas */
+        gap: 15px; /* Reducir el espaciado entre botones */
+    }
+
+    .contact-buttons a {
+        width: 100%; /* Ancho completo del contenedor */
+        max-width: 250px; /* Ancho máximo para evitar botones demasiado grandes */
+    }
+}
 
 
-.footer-logo {
-    display: block;
-    margin: 10px auto 0;
-    max-width: 120px;
+.contact-buttons a:hover {
+    background-color: #fafafa; /* Cambio de color al pasar el mouse */
+    color: #121212;
+}
+
+/* Responsivo */
+@media screen and (max-width: 768px) {
+    .contact-buttons {
+        flex-direction: column; /* Apilar botones en pantallas pequeñas */
+        gap: 10px;
+    }
+
+    .contact-buttons a {
+        width: 100%; /* Ancho completo del contenedor */
+        max-width: 250px; /* Limitar ancho máximo */
+    }
+}
+
+/* Educators */
+#educators {
+    padding: 20px;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#educators h2 {
+    color: #ec4d58;
+}
+
+.educators-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.educator-card {
+    background-color: #2a2a2a;
+    border: 1px solid #ec4d58;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 300px;
+    flex: 1 1 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 /* Responsivo */
 @media screen and (max-width: 768px) {
     .service-card, .educator-card, .community-card, .philosophy-card {
         flex: 1 1 100%;
-        max-width: 100%;
     }
 
     nav ul {
@@ -246,117 +296,6 @@ footer {
         flex-direction: column;
     }
 }
-
-/* Estilo de los botones dentro de un contenedor flex */
-.contact-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    align-items: center;
-    margin-top: 20px;
-}
-
-/* Estilo de los botones */
-.contact-buttons a {
-    background-color: #ec4d58;
-    color: #fafafa;
-    padding: 10px 20px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    height: 40px;
-    white-space: nowrap;
-    gap: 8px;             /* Espacio entre el ícono y el texto */
-}
-
-.contact-buttons a:hover {
-    background-color: #fafafa;
-    color: #121212;
-}
-
-/* Educators */
-#educators {
-    padding: 20px;
-    background-color: #1e1e1e;
-    color: #fafafa;
-    border-radius: 10px;
-    text-align: center;
-    margin: 20px auto;
-}
-
-#educators h2 {
-    font-size: 1.8rem;
-    color: #ec4d58;
-    margin-bottom: 10px;
-}
-
-#educators p {
-    font-size: 1rem;
-    margin-bottom: 20px;
-}
-
-/* Grid de tarjetas */
-.educators-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
-
-/* Tarjeta individual */
-.educator-card {
-    background-color: #2a2a2a;
-    border: 1px solid #ec4d58;
-    border-radius: 8px;
-    text-align: center;
-    padding: 20px;
-    max-width: 300px;
-    flex: 1 1 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.educator-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin-bottom: 15px;
-}
-
-.educator-card h3 {
-    color: #ec4d58;
-    margin-bottom: 10px;
-}
-
-.educator-card p {
-    font-size: 0.9rem;
-    color: #fafafa;
-    margin-bottom: 15px;
-}
-
-.cta-button {
-    background-color: #ec4d58;
-    color: #fafafa;
-    padding: 10px 20px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    display: inline-block;
-    margin-top: auto;
-}
-
-.cta-button:hover {
-    background-color: #fafafa;
-    color: #121212;
-}
-
-@media screen and (max-width: 768px) {
-    .educators-grid {
-        flex-direction: column;
-        align-items: center;
-    }
+.footer-logo{
+    height: 200px;
 }
