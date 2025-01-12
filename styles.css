@@ -269,6 +269,7 @@ footer {
     align-items: center;
     height: 40px;
     white-space: nowrap;
+    gap: 8px;             /* Espacio entre el ícono y el texto */
 }
 
 .contact-buttons a:hover {
