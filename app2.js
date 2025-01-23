@@ -5,7 +5,9 @@ import {
     createUserWithEmailAndPassword, 
     signInWithEmailAndPassword, 
     GoogleAuthProvider, 
-    signInWithPopup 
+    signInWithPopup, 
+    onAuthStateChanged, 
+    signOut
 } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 
 // Configuración de Firebase
@@ -23,12 +25,11 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-// Cambia entre los formularios de Registro e Inicio de Sesión
+// Cambia entre formularios de Registro e Inicio de Sesión
 function toggleForms() {
     const registerFormContainer = document.querySelector('.register-container');
     const loginFormContainer = document.querySelector('.login-container');
-
-    // Cambia la visibilidad de los formularios
+    
     if (registerFormContainer.style.display === 'none') {
         registerFormContainer.style.display = 'block';
         loginFormContainer.style.display = 'none';
@@ -38,61 +39,70 @@ function toggleForms() {
     }
 }
 
-// Lógica del formulario de registro
-document.getElementById('registerForm').addEventListener('submit', function(event) {
+// Registro de usuario
+document.getElementById('registerForm')?.addEventListener('submit', function(event) {
     event.preventDefault();
     const email = document.getElementById('registerEmail').value;
     const password = document.getElementById('registerPassword').value;
 
     createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            alert('Registro exitoso. ¡Bienvenido a Crypto Force!');
+        .then(() => {
+            alert('Registro exitoso. Redirigiendo a dashboard...');
+            window.location.href = 'dashboard.html';
         })
         .catch((error) => {
             alert('Error en el registro: ' + error.message);
         });
 });
 
-// Lógica del formulario de inicio de sesión
-document.getElementById('loginForm').addEventListener('submit', function(event) {
+// Inicio de sesión
+document.getElementById('loginForm')?.addEventListener('submit', function(event) {
     event.preventDefault();
     const email = document.getElementById('loginEmail').value;
     const password = document.getElementById('loginPassword').value;
 
     signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            alert('Inicio de sesión exitoso. Bienvenido de nuevo.');
+        .then(() => {
+            alert('Inicio de sesión exitoso. Redirigiendo a dashboard...');
+            window.location.href = 'dashboard.html';
         })
         .catch((error) => {
             alert('Error en el inicio de sesión: ' + error.message);
         });
 });
 
-// Lógica para iniciar sesión con Google
-document.getElementById('googleLogin').addEventListener('click', function() {
+// Inicio de sesión con Google
+document.getElementById('googleLogin')?.addEventListener('click', function() {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
-        .then((result) => {
-            alert('Inicio de sesión con Google exitoso. ¡Bienvenido!');
+        .then(() => {
+            alert('Inicio de sesión con Google exitoso. Redirigiendo...');
+            window.location.href = 'dashboard.html';
         })
         .catch((error) => {
             alert('Error en el inicio de sesión con Google: ' + error.message);
         });
 });
 
-// Lógica para registro con Google
-document.getElementById('googleRegister').addEventListener('click', function() {
-    const provider = new GoogleAuthProvider();
-    signInWithPopup(auth, provider)
-        .then((result) => {
-            alert('Registro con Google exitoso. ¡Bienvenido!');
-        })
-        .catch((error) => {
-            alert('Error en el registro con Google: ' + error.message);
-        });
-});
+// Protección del dashboard
+if (window.location.pathname.includes('dashboard.html')) {
+    onAuthStateChanged(auth, (user) => {
+        if (!user) {
+            alert('Acceso no autorizado. Redirigiendo a inicio de sesión.');
+            window.location.href = 'login.html';
+        }
+    });
 
-// Conecta el botón de alternar formularios
+    // Cerrar sesión
+    document.getElementById('logout')?.addEventListener('click', function() {
+        signOut(auth).then(() => {
+            alert('Has cerrado sesión. Redirigiendo...');
+            window.location.href = 'login.html';
+        });
+    });
+}
+
+// Alternar formularios
 document.querySelectorAll('.toggle-form').forEach(button => {
     button.addEventListener('click', toggleForms);
 });
