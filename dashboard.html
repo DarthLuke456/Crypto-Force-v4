@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Crypto Force - Dashboard de usuario">
+    <title>Dashboard - Crypto Force</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@500;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+    <script src="firebase-config.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="nav-left">
+                <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+                <li><a href="#profile"><i class="fas fa-user"></i> Perfil</a></li>
+                <li><a href="#trading"><i class="fas fa-chart-line"></i> Trading</a></li>
+                <li><a href="#mentorships"><i class="fas fa-chalkboard-teacher"></i> Mentorías</a></li>
+                <li><a href="#sith-clash"><i class="fas fa-gamepad"></i> Sith Clash</a></li>
+            </ul>
+            <ul class="nav-right">
+                <li><a href="#" id="logout" class="cta-button minimal"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="dashboard" class="card">
+        <h1>Bienvenido a tu Dashboard</h1>
+        <p>Aquí podrás acceder a tus servicios de trading, mentorías y el juego <strong>Sith Clash</strong>.</p>
+        <div class="dashboard-grid">
+            <div class="dashboard-item">
+                <i class="fas fa-user-circle"></i>
+                <h3>Mi Perfil</h3>
+            </div>
+            <div class="dashboard-item">
+                <i class="fas fa-coins"></i>
+                <h3>Trading</h3>
+            </div>
+            <div class="dashboard-item">
+                <i class="fas fa-gamepad"></i>
+                <h3>Sith Clash</h3>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Crypto Force. Todos los derechos reservados.</p>
+        <img src="logo.png" alt="Crypto Force Logo" class="footer-logo">
+    </footer>
+
+    <script>
+        // Verificar autenticación con Firebase
+        firebase.auth().onAuthStateChanged(user => {
+            if (!user) {
+                window.location.href = 'login.html';
+            }
+        });
+
+        // Cerrar sesión
+        document.getElementById('logout').addEventListener('click', () => {
+            firebase.auth().signOut().then(() => {
+                window.location.href = 'index.html';
+            }).catch(error => {
+                console.error('Error al cerrar sesión:', error);
+            });
+        });
+    </script>
+</body>
+</html>
